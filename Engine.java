@@ -1,5 +1,4 @@
-public class Engine implements EngineRequirements{
-   
+ 
     //Attributes
     private FuelType f;
     private double currentFuelLevel;
@@ -72,4 +71,3 @@ public class Engine implements EngineRequirements{
     }
 
 
-}
