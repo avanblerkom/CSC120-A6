@@ -39,7 +39,7 @@ public class TrainTest {
         int initialPassengerCount = c.getPassengersOnboard().size();
         c.addPassenger(p);
         assertTrue(c.inOnboard(p));
-        assertTrue(c.seatsRemaining == 0);
+        assertEquals(0, c.seatsRemaining());
         assertEquals(initialPassengerCount + 1, c.getPassengersOnboard().size()); 
     }
 
@@ -52,7 +52,7 @@ public class TrainTest {
         assertTrue(c.inOnboard(p));
         c.removePassenger(p);
         assertFalse(c.inOnboard(p));
-        assertTrue(c.seatsRemaining == 1);
+        assertEquals(1, c.seatsRemaining());
         assertEquals(initialPassengerCount, c.getPassengersOnboard().size()); 
     }
     
@@ -70,13 +70,11 @@ public class TrainTest {
 
     @Test
     public void testPassengerBoardCarFull() {
-        Passenger p = new Passenger ("Pete");
+        Passenger p = new Passenger("Pete");
         Car c = new Car(0);
         assertFalse(c.inOnboard(p));
         c.addPassenger(p);
         assertFalse(c.inOnboard(p));
-        assertFalse(c.inOnboard(p));
-
     }
 
 
@@ -95,8 +93,6 @@ public class TrainTest {
         // Verify that the train has the correct number of cars
         // Verify that each car in the train has the correct capacity
         assertEquals(10, train.getCar(0).getCapacity());
-        assertEquals(20, train.getCar(1).getCapacity());
-        assertEquals(30, train.getCar(2).getCapacity());
         assertEquals(20, train.getCar(1).getCapacity());
         assertEquals(30, train.getCar(2).getCapacity());
     }
