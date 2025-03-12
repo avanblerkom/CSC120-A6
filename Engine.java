@@ -1,8 +1,10 @@
  
+ public class Engine implements EngineRequirements{
+  
     //Attributes
     private FuelType f;
     private double currentFuelLevel;
-        private double maxFuelLevel;
+    private double maxFuelLevel;
     
         /**
          * Constructor for Engine
@@ -16,6 +18,15 @@
             this.maxFuelLevel = maxFuelLevel;
         }
     
+        public double getMaxFuelLevel() {
+            return maxFuelLevel;
+        }
+
+        public double getFuelLevel() {
+            return currentFuelLevel;
+        }
+
+
         /**
          * Gets the fuel type of the engine.
          * @return The fuel type of the engine.
@@ -70,4 +81,5 @@
         System.out.println(myOtherEngine);
     }
 
+ }
 

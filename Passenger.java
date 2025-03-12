@@ -27,4 +27,8 @@ public class Passenger {
     c.removePassenger(this);
     }
 
+    public String getName() {
+       return name;
+    }
+
 }

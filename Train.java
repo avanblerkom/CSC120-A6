@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Train class represents a train with an engine and multiple cars.
@@ -23,6 +24,17 @@ private ArrayList<Car> cars;
             this.cars.add(new Car(passengerCapacity));
         }
     }
+
+    /**
+     * Constructor for Train with a list of cars.
+     * @param cars The list of cars to initialize the train with.
+     */
+    public Train(List<Car> cars) {
+        this.cars = new ArrayList<>(cars);
+    }
+
+
+    
 
     /**
      * Gets the engine of the train.
@@ -66,12 +78,43 @@ private ArrayList<Car> cars;
         }
         return totalSeatsRemaining;
     }
+
+    /**
+     * Gets the total number of passengers on the train.
+     * @return The total number of passengers on the train.
+     */
+    public int getTotalPassengerCount() {
+        int totalPassengers = 0;
+        for (Car car : cars) {
+            totalPassengers += car.getPassengersOnboard().size();
+        }
+        return totalPassengers;
+    }
+
     /**
      * Prints the manifest of each car in the train.
      */
     public void printManifest() {
-        for (Car car : cars) {
-            car.printManifest();
+        System.out.print(generateManifest());
+    }
+
+    /**
+     * Generates the manifest of each car in the train.
+     * @return The manifest as a string.
+     */
+    public String generateManifest() {
+        StringBuilder manifest = new StringBuilder();
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            manifest.append("Car ").append(i + 1).append(" (Capacity: ").append(car.getCapacity()).append("):\n");
+            if (car.getPassengersOnboard().isEmpty()) {
+                manifest.append("  No passengers onboard.\n");
+            } else {
+                for (Passenger p : car.getPassengersOnboard()) {
+                    manifest.append("  - ").append(p.getName()).append("\n");
+                }
+            }
         }
+        return manifest.toString();
     }
 }
