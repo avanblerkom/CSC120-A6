@@ -39,7 +39,7 @@ public class TrainTest {
         int initialPassengerCount = c.getPassengersOnboard().size();
         c.addPassenger(p);
         assertTrue(c.inOnboard(p));
-        assertEquals(0, c.seatsRemaining());
+        assertEquals(0, c.getSeatsRemaining()); // Use getter method
         assertEquals(initialPassengerCount + 1, c.getPassengersOnboard().size()); 
     }
 
@@ -52,7 +52,7 @@ public class TrainTest {
         assertTrue(c.inOnboard(p));
         c.removePassenger(p);
         assertFalse(c.inOnboard(p));
-        assertEquals(1, c.seatsRemaining());
+        assertEquals(1, c.getSeatsRemaining()); // Use getter method
         assertEquals(initialPassengerCount, c.getPassengersOnboard().size()); 
     }
     
@@ -65,7 +65,7 @@ public class TrainTest {
         assertFalse(c.inOnboard(p));
         c.addPassenger(p);
         assertTrue(c.inOnboard(p));
-        assertTrue(c.seatsRemaining == 0);
+        assertTrue(c.getSeatsRemaining() == 0); // Use getter method
     }
 
     @Test

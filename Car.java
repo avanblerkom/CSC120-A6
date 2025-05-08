@@ -7,11 +7,11 @@ public class Car {
     // Attributes
     private ArrayList<Passenger> passengersOnboard;
     private int maxCapacity;
-    public int seatsRemaining;
+    private int seatsRemaining; // Change to private
 
-public boolean inOnboard (Passenger p) {
-    return this.passengersOnboard.contains(p);
-}
+    public boolean inOnboard(Passenger p) {
+        return this.passengersOnboard.contains(p);
+    }
 
     /**
      * Constructor for Car.
@@ -29,12 +29,21 @@ public boolean inOnboard (Passenger p) {
     public int getCapacity() {
         return maxCapacity;
     }
+
     /**
      * Gets the number of seats remaining in the car.
      * @return The number of seats remaining in the car.
      */
     public int seatsRemaining() {
         return maxCapacity - passengersOnboard.size();
+    }
+
+    /**
+     * Gets the number of seats remaining in the car.
+     * @return The number of seats remaining in the car.
+     */
+    public int getSeatsRemaining() {
+        return seatsRemaining;
     }
 
     /**
@@ -58,6 +67,7 @@ public boolean inOnboard (Passenger p) {
             return false;
         }
     }
+
     /**
      * Removes a passenger from the car.
      * @param p The passenger to remove.
@@ -72,8 +82,7 @@ public boolean inOnboard (Passenger p) {
         }
     }
 
-
-     /**
+    /**
      * Prints the manifest of passengers in the car.
      */
     public void printManifest() {
@@ -81,6 +90,4 @@ public boolean inOnboard (Passenger p) {
             System.out.println(p);
         }
     }
-    
-    
 }
